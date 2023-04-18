@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ 
+}
+
+.square {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #312b2b4d;
+  
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myButton {
+  background-color: #f0e409;
+  border: none;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#counter {
+  margin-left: 2px;
+}
+
+#colorButton {
+  margin-top: 260px;
+  margin-left: -180px;
+
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #14ab84;
+  border: 2px solid #000;
+  color: #000;
+  cursor: pointer;
+
+}
+
+   
+
+</style>
+<body>
+    <div class="container">
+        <div class="square">
+          <div class="circle">
+            <button id="myButton">
+              <span id="counter">0</span>
+            </button>
+          </div>
+        </div>
+        <button id="colorButton">Change Color</button>
+      </div>
+      
+
+    <script>
+        const myButton = document.getElementById('myButton');
+const counter = document.getElementById('counter');
+const colorButton = document.getElementById('colorButton');
+let count = 0;
+
+myButton.addEventListener('click', function() {
+  count++;
+  counter.textContent = count;
+});
+
+colorButton.addEventListener('click', function() {
+    const bgColor = getComputedStyle(colorButton).backgroundColor;
+    console.log(bgColor)
+    myButton.style.backgroundColor = bgColor;
+ 
+});
+
+
+    </script>
+</body>
+</html>
